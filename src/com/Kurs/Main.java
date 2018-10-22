@@ -1,5 +1,6 @@
 package com.Kurs;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -26,10 +27,12 @@ public class Main {
         for (int i = 0; i <17; i++) {
             stack.push(i);
         }
-        stack.toString();
+        //stack.toString();
         /*while (!stack.isEmpty()){
             System.out.println(stack.pop());
         }*/
+
+        int[] tab = squareUp(3);
     }
     public static boolean czyRyz(int x, int kg1, int kg5){
         return false;
@@ -152,5 +155,16 @@ public class Main {
         }
         return tab;
     }
-
+    public static int[] squareUp(int n) {
+        int[] tab = new int[n*n];
+        for (int i = 1; i <=n; i++) {
+            for (int j = 1; j <=n ; j++) {
+                int index = (j)+(i-1)*n-1;
+                if((n-j+1)<=i){
+                   tab[index]=n-j+1;
+                }
+            }
+        }
+        return tab;
+    }
 }
