@@ -143,6 +143,14 @@ public class Main {
         return false;
     }
     public int[] seriesUp(int n) {
-        return null;
+        int[] tab = new int[n*(n+1)/2];
+        for (int i = 1; i <=n; i++) {
+            for (int j = 1; j <=i ; j++) {
+                int index = (i*(i+1)/2)-i+j-1;
+                tab[index]=j;
+            }
+        }
+        return tab;
     }
+
 }
