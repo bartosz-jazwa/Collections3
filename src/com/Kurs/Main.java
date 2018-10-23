@@ -32,7 +32,11 @@ public class Main {
             System.out.println(stack.pop());
         }*/
 
-        int[] tab = squareUp(3);
+        int[] tab = {1, 3, 1, 4, 4, 3, 1};
+        int[]tab2 = fix34(tab);
+        for (int t:tab2) {
+            System.out.println(t);
+        }
     }
     public static boolean czyRyz(int x, int kg1, int kg5){
         return false;
@@ -91,7 +95,6 @@ public class Main {
 
         return tab;
         }
-
 
     public static int[] zad6(int[] tab1, int[] tab2){
         int[] tab = new int[tab1.length];
@@ -179,5 +182,25 @@ public class Main {
             isPrevClump=isClump;
         }
         return clumpCount;
+    }
+    public static int[] fix34(int[] nums) {
+        int[] newTab = new int[nums.length];
+        for (int i = 0; i <nums.length ; i++) {
+            newTab[i]=nums[i];
+        }
+        int k=0;
+        for (int i = 0; i <newTab.length;i++) {
+            if(newTab[i]==3&&newTab[i+1]!=4){
+                for (int j = k; j <newTab.length ; j++) {
+                    if (newTab[j]==4){
+                        newTab[j]=newTab[i+1];
+                        newTab[i+1]=4;
+                        k=j;
+                        break;
+                    }
+                }
+            }
+        }
+        return newTab;
     }
 }
