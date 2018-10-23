@@ -167,4 +167,17 @@ public class Main {
         }
         return tab;
     }
+    public int countClumps(int[] nums) {
+        boolean isClump = false;
+        boolean isPrevClump = false;
+        int clumpCount = 0;
+        for (int i = 1; i <nums.length ; i++) {
+            isClump = (nums[i]==nums[i-1]);
+            if(isClump&&!isPrevClump){
+                clumpCount++;
+            }
+            isPrevClump=isClump;
+        }
+        return clumpCount;
+    }
 }
