@@ -32,8 +32,8 @@ public class Main {
             System.out.println(stack.pop());
         }*/
 
-        int[] tab = {1, 3, 1, 4, 4, 3, 1};
-        int[]tab2 = fix34(tab);
+        int[] tab = {4, 5, 4, 1, 5};
+        int[]tab2 = fix45(tab);
         for (int t:tab2) {
             System.out.println(t);
         }
@@ -199,6 +199,30 @@ public class Main {
                         break;
                     }
                 }
+            }
+        }
+        return newTab;
+    }
+    public static int[] fix45(int[] nums) {
+        int[] newTab = new int[nums.length];
+        for (int i = 0; i <nums.length ; i++) {
+            newTab[i]=nums[i];
+        }
+        int exc=-1;
+        int start = 0;
+        for (int i = 0; i <newTab.length;i++) {
+            if(newTab[i]==4&&newTab[i+1]!=5){
+                for (int j = start; j <newTab.length ; j++) {
+                    if (newTab[j]==5&&j!=exc){
+                        newTab[j]=newTab[i+1];
+                        newTab[i+1]=5;
+                        exc=i+1;
+                        start=j+1;
+                        break;
+                    }
+                }
+            }else if(newTab[i]==4&&newTab[i+1]==5){
+                exc=i+1;
             }
         }
         return newTab;
