@@ -32,11 +32,11 @@ public class Main {
             System.out.println(stack.pop());
         }*/
 
-        int[] tab = {4, 5, 4, 1, 5};
-        int[]tab2 = fix45(tab);
-        for (int t:tab2) {
-            System.out.println(t);
-        }
+        int[] tab = {21};
+        int tab2 = maxMirror(tab);
+
+            System.out.println(tab2);
+
     }
     public static boolean czyRyz(int x, int kg1, int kg5){
         return false;
@@ -226,5 +226,39 @@ public class Main {
             }
         }
         return newTab;
+    }
+    public static int maxMirror(int[] nums) {
+        int maxMirror=0;
+        int prevMax = 0;
+        int startIndex=0;
+        int endIndex=0;
+        boolean breakLoop=false;
+        int loopCount=0;
+        for (int i = 0; i <nums.length ; i++) {
+            for (int j = nums.length-1; j >i ; j--) {
+
+                if(nums[i]==nums[j]){
+                    startIndex=j;
+                    endIndex =j;
+                    maxMirror=0;
+                    breakLoop=true;
+                    break;
+                }
+            }
+            if(breakLoop){
+                for (int j = i; (j<=endIndex)&&(startIndex>=0) ; j++) {
+                    if(nums[j]==nums[startIndex]){
+                        maxMirror++;
+                    }else {
+                        break;
+                    }
+                    startIndex--;
+                }
+            }
+            if(maxMirror>prevMax){
+                prevMax=maxMirror;
+            }
+        }
+        return prevMax;
     }
 }
