@@ -9,4 +9,5 @@ public interface Stack<T> {
     T poll();
 
     boolean isEmpty();
+
 }

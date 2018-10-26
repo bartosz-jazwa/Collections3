@@ -35,7 +35,11 @@ public class Main {
         int[] tab = {21};
         int tab2 = maxMirror(tab);
 
-            System.out.println(tab2);
+        System.out.println(tab2);
+
+        CalcONP calcONP = new CalcONP();
+        calcONP.getOperand();
+
 
     }
     public static boolean czyRyz(int x, int kg1, int kg5){
@@ -53,6 +57,7 @@ public class Main {
         }
 
     }
+
     public static int[] zad2(int n){
         int[] tab = new int[n];
         for (int i =n-1;i>=0;i--){

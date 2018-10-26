@@ -48,4 +48,9 @@ public class ArrayStack<T> implements Stack<T> {
                 ", currentIndex=" + currentIndex +
                 '}';
     }
+
+    public int getSize() {
+        int size = currentIndex+1;
+        return size;
+    }
 }
