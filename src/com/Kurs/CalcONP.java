@@ -51,41 +51,22 @@ public class CalcONP {
     public void getOperand(){
         Scanner scanner  =new Scanner(System.in);
         String input;
-        int step;
+
         do {
             System.out.println("Podaj kolejną liczbę, lub wykonaj operację");
             input = scanner.next();
-            if (stos.isEmpty()){
+            if (estimInputNumber(input)){
+                stos.push(Integer.parseInt(input));
 
-                if (estimInputNumber(input)){
-                    stos.push(Integer.parseInt(input));
-                    System.out.println(stos.poll());
+            }else if (estimInputOper(input)){
+                if (stos.isEmpty()||stos.getSize()<2){
+                    System.out.println("Nie można teraz wykonac operacji");
                 }else {
-                    System.out.println("Nieprawidlowe dane");
-                }
-
-
-            }else if(stos.getSize()<2){
-
-                if (estimInputNumber(input)){
-                    stos.push(Integer.parseInt(input));
-                    System.out.println(stos.poll());
-                }else {
-                    System.out.println("Nieprawidlowe dane");
-                }
-
-            }else {
-
-
-                if (estimInputNumber(input)){
-                    stos.push(Integer.parseInt(input));
-                    System.out.println(stos.poll());
-                }else if(estimInputOper(input)){
                     calc(input);
-                    printResult();
                 }
+            }else {
+                System.out.println("Nieprawidłowy znak");
             }
-
         }while (!input.equals("."));
 
 
