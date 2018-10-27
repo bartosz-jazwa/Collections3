@@ -37,9 +37,19 @@ public class Main {
 
         System.out.println(tab2);
 
-        CalcONP calcONP = new CalcONP();
-        calcONP.getOperand();
+        //CalcONP calcONP = new CalcONP();
+        //calcONP.getOperand();
 
+
+        Person marek = new Person("Marek", Sex.MALE);
+        Person jurek = new Person("Jurek", Sex.MALE);
+        Person zosia = new Person("Zosia", Sex.FEMALE);
+        Person basia = new Person("Basia", Sex.FEMALE);
+        DanceClass tance = new DanceClass();
+        System.out.println(tance.signIn(marek));
+        System.out.println(tance.signIn(jurek));
+        System.out.println(tance.signIn(zosia));
+        System.out.println(tance.signIn(basia));
 
     }
     public static boolean czyRyz(int x, int kg1, int kg5){
